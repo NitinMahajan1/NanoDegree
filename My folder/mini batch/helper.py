@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 25 12:47:21 2017
+
+@author: Nitin
+"""
+
+import math
+def batches(batch_size, features, labels):
+    """
+    Create batches of features and labels
+    :param batch_size: The batch size
+    :param features: List of features
+    :param labels: List of labels
+    :return: Batches of (Features, Labels)
+    """
+    assert len(features) == len(labels)
+    outout_batches = []
+    
+    sample_size = len(features)
+    for start_i in range(0, sample_size, batch_size):
+        end_i = start_i + batch_size
+        batch = [features[start_i:end_i], labels[start_i:end_i]]
+        outout_batches.append(batch)
+        
+    return outout_batches
